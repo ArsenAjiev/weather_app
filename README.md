@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 
 
-### Create Django project in app directory
+### Create Django project in weather_app directory
 ```shell
 django-admin startproject app
 
