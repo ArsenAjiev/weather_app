@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}NEW CITY{% endblock %}
+
+{% block actions %}
+    <a href="{% url 'weather:index' %}"class="btn btn-secondary px-4">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form method="POST" action="{% url 'weather:create' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn px-5 btn-primary">Save</button>
+            </form>
+        </div>
+         {% if message %}
+        <div class="{{ message_class }} col-3"> {{ message }} </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}WEATHER{% endblock %}
+
+
+{% block actions %}
+    <a href="{% url 'weather:create' %}"class="btn btn-primary px-4">Add city</a>
+{% endblock %}
+
+{% block content %}
+    <div class="row row-cols-3">
+
+        {% for city_weather in weather_data %}
+            <div class="col">
+
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+                        <h5 class="card-title">{{ city_weather.city }}</h5>
+                        <p class="card-text">{{ city_weather.temperature }}° C</p>
+                    </div>
+                    <div class="card-footer note-footer">
+                        <small class="text-muted">{{ city_weather.description }}</small>
+                        <div>
+                            <a href="{% url 'weather:destroy' city_weather.pk %}" class="text-danger" onclick="return confirm('Are you sure ?')">
+                                delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

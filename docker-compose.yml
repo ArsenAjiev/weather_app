@@ -1,0 +1,30 @@
+version: "3.5"
+
+services:
+  dbw:
+    container_name: dbw
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+    - postgres-data-weather:/var/lib/postgresql/data/
+    env_file:
+      - ./docker/postgres/.env
+
+  app:
+    container_name: appw
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    env_file:
+      - ./docker/app/.env
+    depends_on:
+      - dbw
+
+volumes:
+  postgres-data-weather:

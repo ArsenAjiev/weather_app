@@ -1,0 +1,9 @@
+body {
+     background: #acbee8;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

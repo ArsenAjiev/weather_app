@@ -1,0 +1,23 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'weather/img/favicon.png'%}">
+    <link href="{% static 'weather/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'weather/css/style.css' %}" rel="stylesheet">
+    <title>WEATHER APP </title>
+</head>
+<body>
+<div class="container">
+    <div class="row my-3 align-items-center justify-content-center">
+        <h3 class="col-auto mb-0">{% block title %}{% endblock %}</h3>
+        <div class="col-auto">{% block actions %}{% endblock %}</div>
+    </div>
+    {% block content %}{% endblock %}
+</div>
+<script src="{% static 'weather/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
