@@ -28,6 +28,8 @@ which pip3.8
 pip install Django==4.0.2
 
 pip install psycopg2-binary==2.9.3
+
+pip install requests==2.27.1
 ```
 
 ### Create and install requirements.txt, if necessary.
