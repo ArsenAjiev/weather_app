@@ -51,15 +51,6 @@ python manage.py startapp weather
 
 
 
-### Run Django project, 
-```shell
-
-python manage.py migrate
-
-python manage.py runserver
-
-```
-
 PostgreSQL
 ----
 ### Create database and user using docker-compose file
