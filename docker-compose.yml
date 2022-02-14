@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn app.wsgi -b 0.0.0.0:8000
     ports:
       - 8000:8000
     volumes:
@@ -25,6 +25,14 @@ services:
       - ./docker/app/.env
     depends_on:
       - dbw
+
+  nginx:
+    container_name: nginx
+    build: ./docker/nginx
+    ports:
+       - "8080:80"
+    depends_on:
+      - app
 
 volumes:
   postgres-data-weather:
